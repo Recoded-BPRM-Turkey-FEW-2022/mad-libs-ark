@@ -4,55 +4,78 @@ function fetchStory(rawStory) {
     .then(response => response.text()).then(processedStory => {
       console.log(processedStory);
       parseStory(processedStory);
-
     });
 }
 
 // fetchStory();
 
 const FormMadlibs = document.getElementById("FormMadlibs");
+const madLibsPreview = document.getElementById("madLibsPreview");
+
 
 function parseStory(processedStory) {
   const arrayStory = processedStory.split(" ");
   console.log(arrayStory);
+
   const regexN = /[[n]]/;
   const regexV = /[[v]]/;
   const regexA = /[[a]]/;
+
   for(let i of arrayStory) {
     if(regexN.test(i)) {
-      console.log("Noun:", i);
+      // console.log("Noun:", i);
       const elementNoun = document.createElement("input");
       elementNoun.innerText = i;
-      // elementNoun.textContent = i;
+      elementNoun.placeholder = "Noun";
+      elementNoun.onkeydown = "handleEnter(event)";
       FormMadlibs.appendChild(elementNoun);
-      // function to create elements
-
+      
     }
     else if(regexV.test(i)) {
-      const elementNoun = document.createElement("input");
-      elementNoun.innerText = i;
+      const elementVerb = document.createElement("input");
+      elementVerb.innerText = i;
+      elementVerb.placeholder = "Verb";
+      elementVerb.onkeydown = "handleEnter(event)";
+      FormMadlibs.appendChild(elementVerb);
       
-      // function to create elements
     }
     else if(regexA.test(i)) {
-      const elementNoun = document.createElement("input");
-      elementNoun.innerText = i;
+      const elementAdjective = document.createElement("input");
+      elementAdjective.innerText = i;
+      elementAdjective.placeholder = "Adjective";
+      elementAdjective.onkeydown = "handleEnter(event)";
+      FormMadlibs.appendChild(elementAdjective);
+      // madLibsPreview.appendChild(elementAdjective);
       
-      // function to create elements
     }
     else {
       const elementNoun = document.createElement("label");
-      // elementNoun.innerText = i + " ";
-      elementNoun.textContent = i + " ";
+      // const elementNoun2 = document.createElement("label");
+      elementNoun.textContent = i;
+      // elementNoun2.textContent = i;
       FormMadlibs.appendChild(elementNoun);
+      // madLibsPreview.appendChild(elementNoun2);
     }
 
   }
 }
 
+function handleEnter(event) {
+  if (event.key==="Enter") {
+     const index = [...FormMadlibs].indexOf(event.target);
+     FormMadlibs.elements[index + 1].focus();
+     //event.preventDefault();
+   }
+}
 
+FormMadlibs.addEventListener("keydown", handleEnter);
+
+// function storyPreview() {
+  
+// }
 
 getRawStory().then(parseStory).then((processedStory) => {
-  console.log(processedStory);
+  // console.log(processedStory);
+  processedStory;
 });
 
