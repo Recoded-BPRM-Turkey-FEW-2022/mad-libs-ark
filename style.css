@@ -22,12 +22,12 @@ h2 {
   display: inline-block;
 }
 
-.container{
+.container {
     margin: 25px auto;
     min-width: 60vw;
     max-width: 70vw;
     min-height: 30vh;
-    max-height: 90vh;
+    /* max-height: 90vh; */
     padding: 30px 0;
     background-color: rgba(255,255,255,.6 );
     border-radius: 20px;
@@ -37,6 +37,21 @@ h2 {
     align-items: center;
     flex-direction: column;
 }
+.container-Preview {
+  margin: 25px auto;
+  min-width: 60vw;
+  max-width: 70vw;
+  min-height: 30vh;
+  /* max-height: 90vh; */
+  padding: 30px 0;
+  background-color: rgba(255,255,255,.6 );
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  overflow-y: auto;
+  display: flex;
+  /* align-items: center;  */
+  flex-direction: column;
+}
 
 form input {
     text-align: center;
@@ -45,13 +60,17 @@ form input {
 
 input:focus {
     /* box-shadow: 0 0 10px #719ECE; */
-    color: rgba(2, 162, 114, 0.7316060213147759) 100%;
-    
-    
+    color: rgba(2, 162, 114, 0.7316060213147759);
 }
 
 label {
   color: rgb(65, 65, 65);
   font-size: 20px;
   margin: 3px;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
