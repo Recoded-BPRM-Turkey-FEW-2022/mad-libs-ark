@@ -11,6 +11,7 @@ function fetchStory(rawStory) {
 
 const FormMadlibs = document.getElementById("FormMadlibs");
 const madLibsPreview = document.getElementById("formMadLibsPreview");
+// const test = document.getElementById("test");
 
 
 function parseStory(processedStory) {
@@ -32,13 +33,21 @@ function parseStory(processedStory) {
       elementNoun.onkeydown = "handleEnter(event)";
       FormMadlibs.appendChild(elementNoun);
 
-      const elementPreview = document.createElement("label");
+      const elementPreview = document.createElement("p");
       elementPreview.textContent = "Noun";
+      // elementPreview.innerText = "Noun";
       elementPreview.style.color = "#5c8fff";
       madLibsPreview.appendChild(elementPreview);
+      // test.appendChild(elementPreview);
 
       elementNoun.addEventListener("change", () => {
-        elementPreview.textContent = elementNoun.value;
+        if(elementNoun.value.length <= 20){
+          elementPreview.textContent = elementNoun.value;
+        }
+        else {
+          alert("A maximum of 20 characters is allowed.");
+        }
+        
       });
       id++;
 
@@ -51,13 +60,20 @@ function parseStory(processedStory) {
       elementVerb.onkeydown = "handleEnter(event)";
       FormMadlibs.appendChild(elementVerb);
 
-      const elementPreview = document.createElement("label");
+      const elementPreview = document.createElement("p");
       elementPreview.textContent = "Verb";
+      // elementPreview.innerText = "Verb";
       elementPreview.style.color = "#5c8fff";
       madLibsPreview.appendChild(elementPreview);
+      // test.appendChild(elementPreview);
 
       elementVerb.addEventListener("change", () => {
-        elementPreview.textContent = elementVerb.value;
+        if(elementVerb.value.length <= 20){
+          elementPreview.textContent = elementVerb.value;
+        }
+        else {
+          alert("A maximum of 20 characters is allowed.");
+        }
       });
 
       id++;
@@ -71,24 +87,33 @@ function parseStory(processedStory) {
       elementAdjective.onkeydown = "handleEnter(event)";
       FormMadlibs.appendChild(elementAdjective);
 
-      const elementPreview = document.createElement("label");
+      const elementPreview = document.createElement("p");
       elementPreview.textContent = "Adjective";
+      // elementPreview.innerText = "Adjective";
       elementPreview.style.color = "#5c8fff";
       madLibsPreview.appendChild(elementPreview);
+      // test.appendChild(elementPreview);
 
       elementAdjective.addEventListener("change", () => {
-        elementPreview.textContent = elementAdjective.value;
+        if(elementAdjective.value.length <= 20){
+          elementPreview.textContent = elementAdjective.value;
+        }
+        else {
+          alert("A maximum of 20 characters is allowed.");
+        }
       });
       id++;
 
     }
     else {
       const elementNoun = document.createElement("label");
-      const elementPreview = document.createElement("label");
       elementNoun.textContent = i;
+
+      const elementPreview = document.createElement("p");
       elementPreview.textContent = i;
+      // elementPreview.innerText = i;
+
       FormMadlibs.appendChild(elementNoun);
-      
       madLibsPreview.appendChild(elementPreview);
 
       id++;

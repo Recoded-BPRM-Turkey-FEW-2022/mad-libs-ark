@@ -13,6 +13,7 @@ h1 {
     margin: 0 auto;
     text-align: center;
     font-size: 4vw;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 h2 {
   color: rgba(255,255,255);
@@ -49,9 +50,14 @@ h2 {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   overflow-y: auto;
   display: flex;
+  /* display: grid; */
   /* align-items: center;  */
   flex-direction: column;
 }
+/* 
+.test {
+  display: inline-block;
+} */
 
 form input {
     text-align: center;
@@ -69,8 +75,9 @@ label {
   margin: 3px;
 }
 
-.test {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+p {
+  display: inline-block;
+  color: rgb(65, 65, 65);
+  font-size: 20px;
+  margin: 3px;
 }
