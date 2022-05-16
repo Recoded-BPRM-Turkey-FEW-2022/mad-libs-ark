@@ -1,42 +1,142 @@
-/**
- * Complete the implementation of parseStory.
- * 
- * parseStory retrieves the story as a single string from story.txt
- * (I have written this part for you).
- * 
- * In your code, you are required (please read this carefully):
- * - to return a list of objects
- * - each object should definitely have a field, `word`
- * - each object should maybe have a field, `pos` (part of speech)
- * 
- * So for example, the return value of this for the example story.txt
- * will be an object that looks like so (note the comma! periods should
- * be handled in the same way).
- * 
- * Input: "Louis[n] went[v] to the store[n], and it was fun[a]."
- * Output: [
- *  { word: "Louis", pos: "noun" },
- *  { word: "went", pos: "verb", },
- *  { word: "to", },
- *  { word: "the", },
- *  { word: "store", pos: "noun" }
- *  { word: "," }
- *  ....
- * 
- * There are multiple ways to do this, but you may want to use regular expressions.
- * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
- */
-function parseStory(rawStory) {
-  // Your code here.
-  return {}; // This line is currently wrong :)
+
+function fetchStory(rawStory) {
+  return fetch('./story.txt')
+  .then(response => response.text()).then(processedStory => {
+    console.log(processedStory);
+    parseStory(processedStory);
+  });
 }
 
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- * 
- * You'll want to use the results of parseStory() to display the story on the page.
- */
+// fetchStory();
+
+const FormMadlibs = document.getElementById("FormMadlibs");
+const madLibsPreview = document.getElementById("formMadLibsPreview");
+// const test = document.getElementById("test");
+
+
+function parseStory(processedStory) {
+const arrayStory = processedStory.split(" ");
+// console.log(arrayStory);
+
+const regexN = /[[n]]/;
+const regexV = /[[v]]/;
+const regexA = /[[a]]/;
+
+let id = 0;
+
+for(let i of arrayStory) {
+  if(regexN.test(i)) {
+    const elementNoun = document.createElement("input");
+    elementNoun.innerText = i;
+    elementNoun.placeholder = "Noun";
+    elementNoun.id = id;
+    elementNoun.onkeydown = "handleEnter(event)";
+    FormMadlibs.appendChild(elementNoun);
+
+    const elementPreview = document.createElement("p");
+    elementPreview.textContent = "Noun";
+    // elementPreview.innerText = "Noun";
+    elementPreview.style.color = "#5c8fff";
+    madLibsPreview.appendChild(elementPreview);
+    // test.appendChild(elementPreview);
+
+    elementNoun.addEventListener("change", () => {
+      if(elementNoun.value.length <= 20){
+        elementPreview.textContent = elementNoun.value;
+      }
+      else {
+        alert("A maximum of 20 characters is allowed.");
+      }
+      
+    });
+    id++;
+
+  }
+  else if(regexV.test(i)) {
+    const elementVerb = document.createElement("input");
+    elementVerb.innerText = i;
+    elementVerb.placeholder = "Verb";
+    elementVerb.id = id;
+    elementVerb.onkeydown = "handleEnter(event)";
+    FormMadlibs.appendChild(elementVerb);
+
+    const elementPreview = document.createElement("p");
+    elementPreview.textContent = "Verb";
+    // elementPreview.innerText = "Verb";
+    elementPreview.style.color = "#5c8fff";
+    madLibsPreview.appendChild(elementPreview);
+    // test.appendChild(elementPreview);
+
+    elementVerb.addEventListener("change", () => {
+      if(elementVerb.value.length <= 20){
+        elementPreview.textContent = elementVerb.value;
+      }
+      else {
+        alert("A maximum of 20 characters is allowed.");
+      }
+    });
+
+    id++;
+
+  }
+  else if(regexA.test(i)) {
+    const elementAdjective = document.createElement("input");
+    elementAdjective.innerText = i;
+    elementAdjective.placeholder = "Adjective";
+    elementAdjective.id = id;
+    elementAdjective.onkeydown = "handleEnter(event)";
+    FormMadlibs.appendChild(elementAdjective);
+
+    const elementPreview = document.createElement("p");
+    elementPreview.textContent = "Adjective";
+    // elementPreview.innerText = "Adjective";
+    elementPreview.style.color = "#5c8fff";
+    madLibsPreview.appendChild(elementPreview);
+    // test.appendChild(elementPreview);
+
+    elementAdjective.addEventListener("change", () => {
+      if(elementAdjective.value.length <= 20){
+        elementPreview.textContent = elementAdjective.value;
+      }
+      else {
+        alert("A maximum of 20 characters is allowed.");
+      }
+    });
+    id++;
+
+  }
+  else {
+    const elementNoun = document.createElement("label");
+    elementNoun.textContent = i;
+
+    const elementPreview = document.createElement("p");
+    elementPreview.textContent = i;
+    // elementPreview.innerText = i;
+
+    FormMadlibs.appendChild(elementNoun);
+    madLibsPreview.appendChild(elementPreview);
+
+    id++;
+
+  }
+}
+}
+
+function handleEnter(event) {
+if (event.key==="Enter") {
+   const index = [...FormMadlibs].indexOf(event.target);
+   FormMadlibs.elements[index + 1].focus();
+   //event.preventDefault();
+ }
+}
+
+FormMadlibs.addEventListener("keydown", handleEnter);
+
+function previewChange(elementPreview, id) {
+elementPreview.textContent = document.getElementById(id).value;
+}
+
 getRawStory().then(parseStory).then((processedStory) => {
-  console.log(processedStory);
+// console.log(processedStory);
+processedStory;
 });
