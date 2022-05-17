@@ -54,10 +54,6 @@ h2 {
     /* align-items: center;  */
     flex-direction: column;
 }
-/* 
-.test {
-    display: inline-block;
-  } */
 
 form input {
     text-align: center;
@@ -70,6 +66,7 @@ input:focus {
 }
 
 label {
+    display: inline-block;
     color: rgb(65, 65, 65);
     font-size: 20px;
     margin: 3px;
@@ -85,7 +82,7 @@ p {
 @media (max-width:1140px) {
     body{
         font-size: 1.2vh;
-        line-height: 2rem;
+        line-height: 1.5rem;
     }
     h1{
         font-size: 4.5vh;
