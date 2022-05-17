@@ -70,6 +70,7 @@ input:focus {
 }
 
 label {
+    display: inline-block;
     color: rgb(65, 65, 65);
     font-size: 20px;
     margin: 3px;
