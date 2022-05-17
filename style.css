@@ -1,3 +1,105 @@
-/**
- * Your CSS goes here.
- */
+*{
+    font-family: 'Roboto Flex', sans-serif;
+}
+body {
+    background: rgb(25, 66, 54);
+    background: linear-gradient(90deg,rgba(25, 66, 54, 1) 0%,rgba(2, 162, 114, 0.7316060213147759) 100%);
+    
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    color: rgba(255,255,255);
+    margin: 0 auto;
+    text-align: center;
+    font-size: 4vw;
+    text-shadow: -1px -1px 0 #000, 1px -1px 3 #000, -1px 1px 0 #000, 
+    1px 1px 0#000}
+h2 {
+    color: rgba(255,255,255);
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2.5vw;
+    display: inline-block;
+}
+
+.container {
+    margin: 25px auto;
+    min-width: 60vw;
+    max-width: 70vw;
+    min-height: 30vh;
+      /* max-height: 90vh; */
+    padding: 30px 0;
+    background-color: rgba(255,255,255,.6 );
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container-Preview {
+    margin: 25px auto;
+    min-width: 60vw;
+    max-width: 70vw;
+    min-height: 30vh;
+    /* max-height: 90vh; */
+    padding: 30px 0;
+    background-color: rgba(255,255,255,.6 );
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    overflow-y: auto;
+    display: flex;
+    /* display: grid; */
+    /* align-items: center;  */
+    flex-direction: column;
+}
+
+form input {
+    text-align: center;
+    margin: 1px;
+}
+
+input:focus {
+      /* box-shadow: 0 0 10px #719ECE; */
+    color: rgba(2, 162, 114, 0.7316060213147759);
+}
+
+label {
+    display: inline-block;
+    color: rgb(65, 65, 65);
+    font-size: 20px;
+    margin: 3px;
+}
+
+p {
+    display: inline-block;
+    color: rgb(65, 65, 65);
+    font-size: 20px;
+    margin: 3px;
+}
+
+@media (max-width:1140px) {
+    body{
+        font-size: 1.2vh;
+        line-height: 1.5rem;
+    }
+    h1{
+        font-size: 4.5vh;
+    }
+    h2{
+        font-size: 3vh;
+    }
+    form input{
+        width:6vh;
+    }
+    
+}
+@media (max-width: 720px) {
+    .container{
+        min-height: 40vh;
+    }
+    .container-Preview{
+        min-height: 40vh;
+    }
+}
