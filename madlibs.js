@@ -124,10 +124,10 @@ for(let i of arrayStory) {
 
 function handleEnter(event) {
 if (event.key==="Enter") {
-   const index = [...FormMadlibs].indexOf(event.target);
-   FormMadlibs.elements[index + 1].focus();
+  const index = [...FormMadlibs].indexOf(event.target);
+  FormMadlibs.elements[index + 1].focus();
    //event.preventDefault();
- }
+}
 }
 
 FormMadlibs.addEventListener("keydown", handleEnter);
